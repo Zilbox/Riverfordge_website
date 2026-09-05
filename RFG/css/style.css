@@ -1,0 +1,245 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  font-family: 'Montserrat';
+  line-height: inherit;
+  background-color: var(--color-back);
+
+}
+
+p {
+  margin: 0;
+}
+
+h1,h2,h3 {
+  margin: 0;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: local("Montserrat-Light"),
+     url('../fonts/Montserrat-Light.woff2') format('woff2'),
+     url('../fonts/Montserrat-light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Montserrat';
+  src: local("Montserrat-Regular"),
+     url('../fonts/Montserrat-Regular.woff2') format('woff2'),
+     url('../fonts/Montserrat-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: local("Montserrat-Medium"),
+     url('../fonts/Montserrat-Medium.woff2') format('woff2'),
+     url('../fonts/Montserrat-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: local("Montserrat-SemiBold"),
+     url('../fonts/Montserrat-SemiBold.woff2') format('woff2'),
+     url('../fonts/Montserrat-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style:normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: local('Montserrat Bold'), local('Montserrat-Bold'),
+     url('../fonts/Montserrat-Bold.woff2') format('woff2'),
+     url('../fonts/Montserrat-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: local("Montserrat-ExtraBold"),
+     url('../fonts/Montserrat-ExtraBold.woff2') format('woff2'),
+     url('../fonts/Montserrat-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OldaniaADFStd';
+  src: local("OldaniaADFStd-Regular"),
+     url('../fonts/Oldania-ADF-Std/OldaniaADFStd-Regular.woff2') format('woff2'),
+     url('../fonts/Oldania-ADF-Std/OldaniaADFStd-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OldaniaADFStd';
+  src: local("OldaniaADFStd-RegularItalic"),
+     url('../fonts/Oldania-ADF-Std/OldaniaADFStd-Italic.woff2') format('woff2'),
+     url('../fonts/Oldania-ADF-Std/OldaniaADFStd-Italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OldaniaADFStd';
+  src: local("OldaniaADFStd-Bold"),
+     url('../fonts/Oldania-ADF-Std/OldaniaADFStd-Bold.woff2') format('woff2'),
+     url('../fonts/Oldania-ADF-Std/OldaniaADFStd-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OldaniaADFStd';
+  src: local("OldaniaADFStd-BoldItalic"),
+     url('../fonts/Oldania-ADF-Std/OldaniaADFStd-BoldItalic.woff2') format('woff2'),
+     url('../fonts/Oldania-ADF-Std/OldaniaADFStd-BoldItalic.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gabriela';
+  src: local("Gabriela"),
+     url('../fonts/Gabriela/Gabriela-Regular.woff2') format('woff2'),
+     url('../fonts/Gabriela/Gabriela-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*glob*/
+:root {
+  --containerMaxWidth: 1400px;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-back: #e5dabf;
+}
+
+.btn-reset{
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.input-reset {
+  all: unset;
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  box-shadow: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: none;
+}
+
+.input-reset:hover,
+.input-reset:focus,
+.input-reset:active {
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+  color: inherit;
+}
+
+.ul-reset {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  list-style-position: outside;
+  list-style-image: none;
+  padding-inline-start: 0;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  -webkit-padding-start: 0;
+  -moz-padding-start: 0;
+  -moz-margin-start: 0;
+  -ms-padding-start: 0;
+  -ms-margin-start: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+
+.visibility-hidden {
+  position: absolute;
+  display: inline-block;
+  visibility: hidden;
+  height: 0;
+}
+
+.container {
+  margin: auto;
+  max-width: var(--containerMaxWidth);
+}
+
+.oldania-adf-std {
+  font-family: 'OldaniaADFStd';
+}
+
+.oldania-adf-std--bold {
+  font-family: 'OldaniaADFStd';
+  font-weight: 700;
+}
+
+.oldania-adf-std--italic {
+  font-family: 'OldaniaADFStd';
+  font-style: italic;
+}
+
+/*main*/
+
+.welcoming__title {
+  font-family: 'Gabriela', serif;
+  font-size: 50px;
+  text-align: center;
+}
