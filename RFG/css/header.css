@@ -1,4 +1,9 @@
+.header {
+  margin-bottom: 25px;
+}
+
 .header__banner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,21 +24,60 @@
   text-shadow: -2px 4px 7px #2e270bfa;
 }
 
-.header__nav {
+.header__border {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+}
+
+.header__line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 12px;
+  background-image: url(../img/Palka-dlya-sayta1.png);
+  background-repeat: repeat-x;
+  background-size: contain;
+  background-position: center 0;
+  transform: translateY(50%);
+}
+
+
+.header__plug {
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  height: 60px;
+  aspect-ratio: 157 / 100;
+  background-image: url(../img/decor.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: translate(-100%, 50%);
+}
+
+.header__plug--left {
+  left: 0;
+  transform: translate(0, 50%) scaleX(-1);
+}
+
+.header__nav {
   height: fit-content;
   transform: translateY(-50%);
 }
 
 .header__list {
-  list-style: none;
   display: flex;
-  gap: 20px;
+  justify-content: center;
+  gap: 16px; 
+  width: 100%;
+  list-style: none;
 }
 
 .header__item {
-  width: 230px;
+  width: calc((100% - 20px * 6 - 100px) / 7);
   aspect-ratio: 3 / 1;
   background-image: url(../img/плашка_300.png);
   background-repeat: no-repeat;

@@ -18,6 +18,11 @@
       <div class="header__site-title">
         <p>Riverforge</p>
       </div>
+      <div class="header__border">
+        <div class="header__line"></div>
+        <div class="header__plug header__plug--left"></div>
+        <div class="header__plug"></div>
+      </div>
     </div>
   <nav class="nav header__nav">
     <ul class="ul-reset header__list">
