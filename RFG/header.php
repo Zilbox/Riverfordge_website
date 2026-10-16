@@ -9,65 +9,60 @@
   <link rel="stylesheet" href="css/media.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/footer.css">
-
+  <script defer src="js/main.js"></script>
   <title></title>
 </head>
 <body>
   <header class="header">
     <div class="header__banner">
       <div class="header__site-title">
-        <p>Riverforge</p>
+        <img src="img/main-title.webp" alt="" class="header__title-image">
       </div>
       <div class="header__border">
         <div class="header__line"></div>
         <div class="header__plug header__plug--left"></div>
         <div class="header__plug"></div>
       </div>
+      <nav class="nav header__nav">
+        <ul class="ul-reset header__list">
+          <li class="header__item">
+            <a href="characters">
+              <img src="img/icons/Перс_2.png" alt="" class="header__icon">
+              Персонажи
+            </a>
+          </li>
+          <li class="header__item">
+            <a href="#">
+              <img src="img/icons/История_1.png" alt="" class="header__icon">
+              Хроники
+            </a>
+          </li> 
+          <li class="header__item">
+            <a href="#">
+              <img src="img/icons/Расы_1.png" alt="" class="header__icon">
+              Расы
+            </a>
+          </li>
+          <li class="header__item">
+            <a href="#">
+              <img src="img/icons/Глоссарий_1.png" alt="" class="header__icon">
+              Глоссарий
+            </a>
+          </li>
+          <li class="header__item">
+            <a href="#">
+              <img src="img/icons/Мех_1.png" alt="" class="header__icon">
+              Механики
+            </a>
+          </li>
+          <li class="header__item">
+            <a href="shop">
+              <img src="img/icons/Предметы_1.png" alt="" class="header__icon">
+              Магазин
+            </a>
+          </li>
+        </ul>
+      </nav>  
     </div>
-  <nav class="nav header__nav">
-    <ul class="ul-reset header__list">
-      <li class="header__item">
-        <a href="#">
-          <img src="img/icons/Перс_2.png" alt="" class="header__icon">
-          Персонажи
-        </a>
-      </li>
-      <li class="header__item">
-        <a href="#">
-          <img src="img/icons/История_1.png" alt="" class="header__icon">
-          История
-        </a>
-      </li>
-      <li class="header__item">
-        <a href="#">
-          <img src="img/icons/Расы_1.png" alt="" class="header__icon">
-          Расы
-        </a>
-      </li>
-      <li class="header__item">
-        <a href="#">
-          <img src="img/icons/Лор_1.png" alt="" class="header__icon">
-          Лор
-        </a>
-      </li>
-      <li class="header__item">
-        <a href="#">
-          <img src="img/icons/Предметы_1.png" alt="" class="header__icon">
-          Предметы
-        </a>
-      </li>
-      <li class="header__item">
-        <a href="#">
-          <img src="img/icons/Мех_1.png" alt="" class="header__icon">
-          Механики
-        </a>
-      </li>
-      <li class="header__item">
-        <a href="#">
-          <img src="img/icons/ВК_1.png" alt="" class="header__icon">
-          Военные<br>конфликты
-        </a>
-      </li>
-    </ul>
-  </nav>
+  
   </header>

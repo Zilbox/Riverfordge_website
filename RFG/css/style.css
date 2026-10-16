@@ -1,5 +1,29 @@
+/*glob*/
+:root {
+  --containerMaxWidth: 1200px;
+  --cursor-default: url('../img/cursor.png') 4 4, auto;
+  --cursor-pointer: url('../img/cursor-pointer.png'), pointer;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-back: #e5dabf;
+  --color-seal-brown: #451D1D;
+  --color-raw-umber: #734926;
+
+  --color-scroll: #d4a570b3;
+  --color-scroll-slider: #A68663;
+}
+
+@-moz-document url-prefix() {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-scroll-slider) var(--color-scroll);
+  }
+}
+
 html {
   box-sizing: border-box;
+  /* scrollbar-width: thin; */
+  /* scrollbar-color: var(--color-scroll-slider) var(--color-scroll); */
 }
 
 *,
@@ -8,14 +32,58 @@ html {
   box-sizing: inherit;
 }
 
+/* WebKit-браузеры (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 7px;
+  /* height: 8px; для горизонтального скролла */
+}
+
+::-webkit-scrollbar-button:single-button,
+::-webkit-scrollbar-button:double-button,
+::-webkit-scrollbar-button:vertical:decrement,
+::-webkit-scrollbar-button:vertical:increment {
+  display: none;
+  height: 0;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color-scroll); /* #D3A570, 70% */
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-scroll-slider);
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-scroll-slider);
+}
+
+/* Уголок между вертикальным и горизонтальным скроллом */
+::-webkit-scrollbar-corner {
+  background-color: var(--color-scroll);
+}
+
+::selection {
+  /* background: #800901; */
+  background: #800901e6;
+  color: #fff;
+}
+
 a {
   color: inherit;
   text-decoration: none;
+  cursor: var(--cursor-pointer);
 }
 
 img {
   display: block;
   max-width: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 body {
@@ -24,7 +92,8 @@ body {
   font-family: 'Montserrat';
   line-height: inherit;
   background-color: var(--color-back);
-
+  cursor: var(--cursor-default);
+  
 }
 
 p {
@@ -146,19 +215,31 @@ h1,h2,h3 {
   font-display: swap;
 }
 
-/*glob*/
-:root {
-  --containerMaxWidth: 1400px;
-  --color-black: #000000;
-  --color-white: #ffffff;
-  --color-back: #e5dabf;
+@font-face {
+  font-family: 'Kurale';
+  src: local("Kurale"),
+     url('../fonts/Kurale/Kurale-Regular.woff2') format('woff2'),
+     url('../fonts/Kurale/Kurale-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Monomakh';
+  src: local("Monomakh"),
+     url('../fonts/Monomakh/Monomakh-Regular.woff2') format('woff2'),
+     url('../fonts/Monomakh/Monomakh-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 .btn-reset{
   padding: 0;
   border: none;
   background-color: transparent;
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
 }
 
 .input-reset {
@@ -238,8 +319,1162 @@ h1,h2,h3 {
 
 /*main*/
 
+.main{
+  padding-top: 100px;
+  background: url(../img/main_bg.jpeg), #E5DABF;
+  background-size: cover;
+
+}
+
 .welcoming__title {
   font-family: 'Gabriela', serif;
   font-size: 50px;
+  text-align: center;
+}
+
+.modal {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000067;
+}
+
+.modal--active {
+ display: flex;;
+}
+
+.modal__container {
+  width: fit-content;
+  height: fit-content;
+}
+
+
+
+.rpg-frame {
+  /* 1. Задаем ширину границ. Она должна соответствовать толщине рамки на вашей картинке */
+  border: 20px solid transparent; 
+  
+  /* 2. Подключаем картинку рамки */
+  border-image-source: url('../img/Рамка.png');
+  
+  /* 3. Нарезаем картинку (slice) и задаем поведение краев */
+  /* Значения отсечения (20) должны совпадать с толщиной border. 
+     'fill' сохраняет центральную часть картинки (если она есть).
+     'stretch' растягивает края, 'round' или 'repeat' замощают их. */
+  border-image-slice: 48 fill;
+  border-image-width: 48px;
+  border-image-repeat: stretch; /* или round, если хотите текстуру */
+  
+  /* 4. Фон для внутренней области (цвет пергамента) */
+  
+  
+  /* 5. Дополнительные стили для красоты */
+  display: inline-block; /* Чтобы рамка облегала контент */
+  padding: 20px;
+  color: #000;
+  font-family: serif;
+}
+
+
+/*СПИСОК ПЕРСОНАЖЕЙ*/
+
+/*personages*/
+
+.personages {
+  position: relative;
+  padding-bottom: 60px;
+}
+
+.personages::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  height: 330px;
+  aspect-ratio: 374 / 383;
+  background-image: url(../img/угол_левый.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.personages::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  right: 0;
+  height: 260px;
+  aspect-ratio: 423 / 391;
+  background-image: url(../img/угол_правый.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.personages__container {
+  position: relative;
+  z-index: 2;
+}
+
+.personages__list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  margin-bottom: 60px;
+  max-width: 100%;
+  height: fit-content;
+}
+
+.personages__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 50px 0 0;
+  width: 100%;
+  aspect-ratio: 400/602;
+  font-family: 'Kurale';
+  font-size: 30px;
+  color: var(--color-seal-brown);
+  background-image: url(../img/Бумага_400.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter: drop-shadow(0px 7px 11.3px rgba(0, 0, 0, 0.63));
+  transition: .5s ease-in-out;
+}
+
+.personages__item:hover {
+  filter: drop-shadow(0px 7px 11.3px rgba(0, 0, 0, 1));
+}
+
+.personages__avatar {
+  max-height: 50%;
+  max-width: 70%;
+  width: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 100px;
+  filter: drop-shadow(2px 8px 10.2px rgba(0, 0, 0, 0.49));
+}
+
+.personages__name {
+  max-width: 75%;
+  text-align: center;
+  line-height: 115%;
+}
+
+.personages__race {
+  position: absolute;
+  bottom: 0;
+  height: 76px;
+  transform: translateY(28%);
+}
+
+.personages__medal {
+  height: 100%;
+}
+
+.personages__img-race {
+  position: absolute;
+  left: 50%;
+  top: 14px;
+  width: 55%;
+  transform: translateX(-50%);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+
+}
+
+.pagination__container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 6px;
+  width: fit-content;
+  height: 100%;
+  background-image: url(../img/pagination/фон.png);
+  background-repeat: repeat-x;
+  background-size: contain;
+}
+
+.pagination__btn {
+  height: 100%;
+  aspect-ratio: 117 / 108;
+  background-image: url(../img/pagination/элемент.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+    font-family: 'Kurale', sans-serif;
+  font-size: 40px;
+  color: var(--color-seal-brown);
+  transition: .5s ease-in-out;
+}
+
+.pagination__btn--active {
+  height: 150%;
+  aspect-ratio: 136 / 158;
+  background-image: url(../img/pagination/активный-элемент.png);
+}
+
+.pagination__btn--active span {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F5B01B 100%);
+  -webkit-background-clip: text;   /* для Safari/Chrome */
+  background-clip: text;
+  color: transparent;
+  line-height: 0;
+}
+
+.pagination__arrow-container {
+  position: relative;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.pagination__back {
+  aspect-ratio: 207 / 105;
+  background-image: url(../img/pagination/Начало.png);
+}
+
+.pagination__btn-back {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -4px;
+  height: 113%;
+  aspect-ratio: 128 / 118;
+  transform: translateY(-52%);
+  background-image: url(../img/pagination/стрелка-назад.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.pagination__further {
+  aspect-ratio: 209 / 105;
+  background-image: url(../img/pagination/Конец.png);
+}
+
+.pagination__btn-further {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -4px;
+  height: 115%;
+  aspect-ratio: 133 / 122;
+  transform: translateY(-52%);
+  background-image: url(../img/pagination/стрелка-вперед.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.pagination__btn:hover {
+  filter: drop-shadow(0px 0px 5px rgba(255, 190, 13, 0.8));
+  /* filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.49)); */
+}
+
+
+/*Страница персонажа*/
+
+/*info*/
+
+.info {
+  padding-top: 30px;
+  padding-bottom: 100px;
+}
+
+.info__tabs {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: fit-content;
+  font-family: 'Kurale', sans-serif;
+  color: var(--color-seal-brown);
+}
+
+.info__tab {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  padding: 28px 20px;
+  max-width: 1024px;
+  width: 1024px;
+  aspect-ratio: 1200 / 896;
+  background-image: url(../img/character/Фон-карточки.webp);
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter: drop-shadow(0px 7px 14px rgba(0, 0, 0, 0.6));
+}
+
+.info__tab-container {
+  opacity: 0;
+}
+
+.tab--active .info__tab-container {
+  opacity: 1;
+}
+
+.info__tab--first {
+  position: relative;
+  z-index: 4;
+}
+
+.info__tab--second {
+  z-index: 3;
+}
+
+.info__tab--third {
+  z-index: 2;
+}
+
+.info__tab--fourth {
+  z-index: 1;
+}
+
+.tab--active {
+  z-index: 5;
+}
+
+.info__bookmark {
+  position: absolute;
+  top: -63px;
+  left: 0;
+  padding-top: 18px;
+  display: flex;
+  justify-content: center;
+  width: 94px;
+  aspect-ratio: 94 / 170;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: var(--cursor-pointer);
+  transition: .5s ease-in-out;
+}
+
+.info__bookmark:hover {
+  transform: translateY(-5px);
+}
+
+.tab--active .info__bookmark {
+  transform: none;
+  cursor: var(--cursor-default);
+}
+
+.info__bookmark--first {
+  left: 108px;
+  background-image: url(../img/character/закладка_1_mini.png);
+}
+
+.info__bookmark--second {
+  left: 190px;
+  background-image: url(../img/character/закладка_2_mini.png);
+}
+
+.info__bookmark--third {
+  left: 274px;
+  background-image: url(../img/character/закладка_4_mini.png);
+}
+
+.info__bookmark--fourth {
+  left: 354px;
+  background-image: url(../img/character/закладка_3_mini.png);
+}
+
+.info__icon {
+  max-width: 90%;
+  height: 54px;
+}
+
+.info__personal-top {
+  display: flex;
+}
+
+.info__avatar {
+  position: relative;
+  z-index: 10;
+  width: 250px;
+}
+
+.info__avatar-container {
+  width: 100%;
+  -webkit-mask-image: url('../img/character/альфа-маска-для-рамки_2.png');
+  mask-image: url('../img/character/альфа-маска-для-рамки_2.png');
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.info__avatar-image {
+  width: 100%;
+  object-fit: cover;
+  transform: rotate(-9deg);
+}
+
+.info__avatar-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+.info__avatar-stamp {
+  position: absolute;
+  right: -19px;
+  bottom: 12px;
+  width: 90px;
+  aspect-ratio: 100 / 98;
+  filter: drop-shadow(2px 3px 3.3px rgba(0, 0, 0, 0.63));
+  transform: rotate(-9deg);
+}
+
+.info__main {
+  flex: auto;
+  padding-right: 35px;
+}
+
+.info__name {
+  padding: 28px 0 28px 18px;
+  width: 90%;
+  border-bottom: 2px solid var(--color-seal-brown);
+  font-size: 35px;
+  line-height: 120%;
+  color: var(--color-seal-brown);
+  -webkit-text-stroke: 1px var(--color-seal-brown);
+}
+
+.info__table {
+  display: flex;
+  width: 100%;
+  border-bottom: 2px solid var(--color-seal-brown);
+}
+
+.info__table-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 0px 20px 15px;
+}
+
+.info__table-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 36px;
+  aspect-ratio: 36 / 32;
+  background-image: url(../img/character/декор.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: translate(-53%, -54%);
+}
+
+.info__table-icon {
+  width: 60px;
+}
+
+.info__table-icon img {
+  width: 100%;
+}
+
+.info__table-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: auto;
+  padding-right: 15px;
+  height: 85px;
+  border-right: 2px solid var(--color-raw-umber);
+}
+
+.info__table-item:nth-last-child(1) .info__table-container {
+  padding-right: 0;
+  border: none;
+}
+
+.info__table-label {
+  font-size: 19px;
+  line-height: 140%;
+}
+
+.info__table-value {
+  font-size: 27px;
+  line-height: 140%;
+}
+
+.info__stats-container {
+  position: relative;
+  z-index: 3;
+  padding: 0 35px;
+  transform: translateY(-70px);
+}
+
+.info__stats-title {
+    width: 100%;
+    padding-left: 180px;  
+    margin-bottom: 16px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.info__stats {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 20px 0;
+  border-top: 2px solid var(--color-seal-brown);
+  font-family: 'Kurale', sans-serif;
+}
+
+.info__stats-list {
+  position: relative;
+  padding-left: 20px;
+  grid-column: span 2;
+  /* border: 20px solid transparent; 
+  border-image-source: url('../img/Рамка.png');
+  border-image-slice: 48 fill;
+  border-image-width: 25px;
+  border-image-repeat: stretch; */
+}
+
+.info__stats-list:nth-child(1) {
+  padding-left: 0;
+  padding-right: 20px;
+  grid-column: span 3;
+  border-right: 1px solid ;
+  border-image: linear-gradient(180deg, var(--color-seal-brown), #eac189) 1;
+} 
+
+.info__stats-list::before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: -20px;
+  right: 0;
+  width: 36px;
+  aspect-ratio: 36 / 32;
+  background-image: url(../img/character/декор.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: translate(53%, -54%);
+}
+
+.info__stats-list:nth-child(1)::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: -20px;
+  left: 0;
+  width: 36px;
+  aspect-ratio: 36 / 32;
+  background-image: url(../img/character/декор.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: translate(-44%, -54%);
+}
+
+.info__stats-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 20px;
+}
+
+.info__stats-icon {
+  width: 55px;
+}
+
+/*info__history*/
+
+.info__history-container {
+  display: flex;
+  flex-direction: column;
+  padding: 23px 38px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.info__history-title, .info__history-descr {
+  font-family: 'Monomakh', sans-serif;
+} 
+
+.info__history-title {
+  margin-left: 46%;
+  margin-bottom: 15px;
+  width: fit-content;
+  text-align: center;
+  font-size: 34px;
+}
+
+.info__history-descr {
+  flex: auto;
+  width: 100%;
+  font-size: 22px;
+  line-height: 140%;
+  overflow-y: scroll;
+}
+
+.info__history-letter {
+  margin-right: 8px;
+  float: left;
+  height: 122px;
+}
+
+/**/
+
+.info__outfit {
+  padding-left: 38px;
+  padding-right: 38px;
+  background-image: url(../img/character/Фон-карточки-без-компаса.webp);
+}
+
+.info__outfit-container {
+  position: relative;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  padding-bottom: 5px;
+  height: 100%;
+}
+
+.info__outfit-title {
+    margin: auto;
+    width: fit-content;
+    font-family: 'Monomakh', sans-serif;
+    font-size: 44px;
+}
+
+.outfit__wardrobe {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: fit-content;
+  -webkit-mask-image: url('../img/character/wardrobe-mask.png');
+  mask-image: url('../img/character/wardrobe-mask.png');
+  overflow: hidden;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.outfit__wardrobe-svg {
+  width: 100%;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 0 0;
+}
+
+.outfit__wardrobe-svg *  {
+  fill: none;
+  stroke: transparent;
+  stroke-width: 5px;
+  stroke-opacity: 0.3;
+  stroke-linejoin: round;
+  transition: 0.7s ease-out;
+  cursor: var(--cursor-pointer);
+  pointer-events: all; 
+}
+
+.outfit__wardrobe-press:hover, .outfit__wardrobe-press *:hover {
+  stroke: #ffd700;
+  stroke-width: 5px;
+  stroke-opacity: 0.8;
+}
+
+.outfit__tip {
+  position:absolute;
+  padding:6px 10px; 
+  border-radius:6px;
+  opacity:0;
+  color:#fff; 
+  font: 13px sans-serif;
+  background:#222;
+  pointer-events:none;  
+  transition: opacity .15s; 
+  transform: translate(-50%, -130%);
+}
+
+.outfit__modal {
+  display: flex;
+  gap: 30px;
+}
+
+.outfit__equipment {
+  position: relative;
+  display: none;
+  height: 90vh;
+  aspect-ratio: 9 / 11;
+}
+
+.outfit__equipment--active {
+  display: block;
+}
+
+.outfit__background {
+  display: flex;
+  justify-content: center;
+  padding: 4% 5% 5% 6%;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  -webkit-mask-image: url('../img/character/wardrobe/frame/маска.png');
+  mask-image: url('../img/character/wardrobe/frame/маска.png');
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.outfit__background::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -20px;
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px);
+  
+}
+
+.outfit__image {
+  height: 100%;
+}
+
+.outfit__frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/character/wardrobe/frame/рамка.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.skills {
+  padding: 55px 50px;
+  display: flex;
+  align-items: center;
+}
+
+.skills__container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  height: 100%;
+  font-family: 'Kurale', sans-serif;
+}
+
+.skills__title {
+  margin-bottom: 10px;
+  font-size: 35px;
+  font-weight: 600;
+}
+
+.skills__part {
+  font-size: 20px;
+}
+
+.skills__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.skills__item {
+  position: relative;
+  padding-left: 17px;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  line-height: 120%;
+  cursor: var(--cursor-pointer);
+  transition: all .3s ease-in-out;
+}
+
+.skills__item::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: block;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #734926;
+  border-radius: 4px 3px;
+  transform: rotate(-45deg) translate(50%, -25%);
+}
+
+.skills__item:hover {
+  /* text-shadow: 0px 4px 13.9px #734926ce; */
+}
+
+.skills__item:hover .skills__hint {
+  visibility: visible;
+  padding: 20px 20px 15px;
+  transition: padding .65s ease-in-out, visibility 0.3s ease .35s ;
+}
+
+.skills__hint {
+  position: absolute;
+  z-index: 15;
+  top: 100%;
+  left: 0;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px 0;
+  width: 500px;
+  height: fit-content;
+  font-size: 18px;
+  background-color: #f2d7a9;
+  border: 7px solid transparent;
+  border-image: linear-gradient(35deg, transparent, #91541d 43%, transparent) 1;
+  background-image: url(../img/character/paper.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  cursor: var(--cursor-default);
+  overflow: hidden;
+  transition: 0s;
+}
+
+.skills__hint p  {
+  display: flex;
+  gap: 10px;
+}
+
+.skills__descr {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.skills__link {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 30px;
+  font-weight: 600;
+  transition: color .3s ease-in-out;
+}
+
+.skills__link > svg {
+  width: 40px;
+  fill: var(--color-seal-brown);
+  transition: fill .3s ease-in-out, transform .3s ease-in-out;
+}
+
+.skills__link:hover {
+  color: #cf2121;
+}
+
+.skills__link:hover > svg {
+  fill: #cf2121;
+  transform: translateX(15%);
+}
+
+/*shop*/
+.main-shop {
+  padding: 0;
+}
+
+.shop {
+  position: relative;
+  z-index: 0;
+  aspect-ratio: 1536 / 1024;
+  background-image: url('../img/shops/лавка-Юрпена.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 0 0;
+}
+
+.shop__svg {
+  width: 100%;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 0 0;
+  /* filter: drop-shadow(2px 3px 3px black); */
+}
+
+.shop__svg *  {
+  fill: none;
+  stroke: transparent;
+  stroke-width: 2px;
+  stroke-opacity: 0.3;
+  stroke-linejoin: round;
+  transition: 0.7s ease-out;
+  cursor: var(--cursor-pointer);
+  pointer-events: all; 
+}
+
+.candle-overlay {
+  z-index: 10;
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: url('../img/shops/ореолы_4.png');
+  background-size: cover;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  animation: breathe 3s infinite alternate;
+}
+
+.candle-overlay--2 {
+  background-image: url('../img/shops/ореолы_5.png');
+  animation: breathe 2s infinite alternate;
+}
+
+.candle-overlay--3 {
+  background-image: url('../img/shops/рамка-каталога-2.png');
+  animation: breathe 4s infinite alternate;
+}
+
+@keyframes breathe {
+  0% { opacity: 0; }
+  100% { opacity: 1;}
+}
+
+
+
+/* Перспектива — задаётся на внешнем контейнере */
+.book-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  perspective: 2500px;
+  perspective-origin: 50% 50%;
+  overflow: hidden;
+  opacity: 1;
+  transform: rotate(0);
+  transition: all .7s ease-in-out;
+}
+
+.book-wrap--hidden {
+  top: 57%;
+  left: 11%;
+  z-index: -1;
+  width: 115px;
+  height: 221px;
+  transform: rotate(-17deg);
+  opacity: 0;
+}
+
+
+
+.book {
+  position: relative;
+  width: auto;
+  height: 80vh;
+  aspect-ratio: 2048 / 1536;
+  display: flex;
+  transform-style: preserve-3d;
+}
+
+/* Левая и правая половины разворота */
+.side {
+  position: relative;
+  width: 50%;
+  height: 100%;
+}
+
+/* ---------- Листы (переворачивающиеся) ---------- */
+.sheet {
+  position: absolute;
+  top: 0;
+  left: 0;                 /* лист лежит в правой половине */
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform-origin: left center;   /* сгиб по левому краю */
+  transition: transform 1.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+  cursor: var(--cursor-pointer);
+  will-change: transform;
+}
+
+/* Перевёрнутый лист уходит на левую половину */
+.sheet.flipped {
+  transform: rotateY(-180deg);
+  z-index: 1;
+}
+
+/* Обе стороны листа */
+.page-face {
+  position: absolute;
+  inset: 0;
+  padding: 46px;
+  background-image: url('../img/shops/фон-книги.webp');
+  background-repeat: no-repeat;
+  background-size: contain;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.05);
+  font-family: 'Kurale', sans-serif;
+}
+
+.page-face--title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Лицевая (правая) сторона — сгиб слева, тень у корешка */
+.page-face.front {
+  border-radius: 0 6px 6px 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.2), transparent 25%), center / contain no-repeat url(../img/shops/фон-книги.webp);
+}
+
+/* Обратная сторона — повёрнута на 180°, сгиб справа */
+.page-face.back {
+  transform: rotateY(180deg);
+  border-radius: 6px 0 0 6px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.2), transparent 25%), center / contain no-repeat url(../img/shops/фон-книги.webp);
+}
+
+.page-face h2 {
+  margin-bottom: 14px;
+  font-size: 60px;
+  color: var(--color-seal-brown);
+  text-align: center;
+
+}
+
+.page-face p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #666;
+}
+
+.page-face.page-face--title p {
+  padding: 0 20px;
+  font-size: 23px;
+  text-align: center;
+  color: var(--color-raw-umber)
+}
+
+.page-pagination {
+  position: absolute;
+  bottom: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 15px;
+  color: var(--color-seal-brown);
+}
+
+/* ---------- Статичная левая половина (задняя обложка) ---------- */
+.left .back-cover {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: #ece5d5;
+  border-radius: 6px 0 0 6px;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Лёгкое затемнение в момент переворота (появляется через JS-класс) */
+.sheet::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.55s ease;
+}
+
+.sheet.moving::after { opacity: 0.18; }
+.sheet.moving { transition: transform 1.1s cubic-bezier(0.645, 0.045, 0.355, 1); }
+
+.book__element {
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.book__element-image {
+  height: 220px;
+  filter: drop-shadow(3px 5px 7px var(--color-black));
+}
+
+.book__element-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 10px;
+  font-size: 16px;
+}
+
+.book__element-name {
+  margin-bottom: 10px;
+  font-size: 33px;
+  line-height: 120%;
+  text-align: center;
+  color: var(--color-seal-brown);
+  -webkit-text-stroke: 2px var(--color-seal-brown);
+}
+
+.book__element-common {
+  display: flex;
+  gap: 10px;
+  font-family: 'Gabriela', sans-serif;
+  font-size: 17px;
+  color: var(--color-seal-brown);
+  -webkit-text-stroke: 1px var(--color-seal-brown);
+}
+
+.book__element-common .value{
+  -webkit-text-stroke: 0;
+}
+
+.book__element-descr {
+  padding: 10px 0px 0;
+  color: var(--color-raw-umber);
+  text-align: center;
+}
+
+.book__element-price {
+  position: absolute;
+  top: 110px;
+  right: 70px;
+  font-size: 33px;
+  color: var(--color-seal-brown);
   text-align: center;
 }
