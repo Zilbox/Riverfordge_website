@@ -1,0 +1,586 @@
+.main {
+  position: relative;
+  padding-top: 79px;
+  padding-bottom: 150px;
+  background-position-x: center;
+  border: 27px solid transparent;
+  border-top: none;
+  border-image-source: url(../img/race/border/рамка.png);
+  border-image-slice: 40;
+  border-image-repeat: repeat;
+  background-image:
+    linear-gradient(to bottom, #9952194a, transparent 5%),
+    linear-gradient(to top, #9952194a, transparent 15%),
+    linear-gradient(to right, #9952195c, transparent 15%),
+    linear-gradient(to left, #9952195c, transparent 15%),
+    /* radial-gradient(ellipse at center, transparent 85%, #995219 100%), */
+    url(../img/main_bg.jpeg);
+}
+
+.main::before, .main::after { 
+  content: "";
+  position: absolute;
+  bottom: -27px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.main::before { 
+  left: -27px;
+  height: 81px;
+  aspect-ratio: 108 / 107;
+  background-image: url(../img/race/border/у-н-л.png);
+}
+
+.main::after { 
+  right: -27px;
+  height: 81px;
+  aspect-ratio: 112 / 107;
+  background-image: url(../img/race/border/у-н-п.png);
+}
+
+.main__decor-top {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 440px;
+}
+
+.main__decor-top::before, .main__decor-top::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 490px;
+  aspect-ratio: 1 / 1;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.main__decor-top::before {
+  left: 0;
+  background-image: url('../img/race/верх-лево.png');
+}
+
+.main__decor-top::after {
+  right: 0;
+  background-image: url('../img/race/верх-право.png');
+}
+
+.main__decor-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 450px;
+}
+
+.main__decor-bottom::before, .main__decor-bottom::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 495px;
+  aspect-ratio: 1 / 1;
+  background-size: contain;
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+}
+
+.main__decor-bottom::before {
+  left: 0;
+  background-image: url('../img/race/низ-лево.png');
+}
+
+.main__decor-bottom::after {
+  right: 0;
+  background-image: url('../img/race/низ-право.png');
+}
+
+.main__wall-left {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 131px;
+  height: calc(100% - 460px - 475px);
+  background-image: url(../img/race/боковая-1.png);
+  background-repeat: space;
+  background-position: center;
+  background-size: contain;
+  transform: translateY(-50%);
+}
+
+.main__wall-right {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 131px;
+  height: calc(100% - 470px - 475px);
+  background-image: url(../img/race/боковая-1.png);
+  background-repeat: space;
+  background-position: center;
+  background-size: contain;
+  transform: translateY(-50%) scale(-1, 1);
+
+}
+
+.races {
+  position: relative;
+  z-index: 21;
+  font-family: 'Kurale', sans-serif;
+  color: var(--color-seal-brown);
+}
+
+.races__switch {
+  margin-left: auto;
+  margin-bottom: 15px;
+  display: flex;
+  width: fit-content;
+  transform: translateX(80px);
+}
+
+.races__switch-btn {
+  width: 150px;
+  aspect-ratio: 595 / 370;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: var(--cursor-pointer);
+  filter: drop-shadow(0px 3px 5px var(--color-seal-brown));
+}
+
+.races__switch-list {
+  background-image: url(../img/race/switch/список-дефолт.png);
+}
+.races__switch-list.races__switch--active {
+  background-image: url(../img/race/switch/список-актив.png);
+}
+
+.races__switch-tile {
+  background-image: url(../img/race/switch/плитка-дефолт.png);
+}
+
+.races__switch-tile.races__switch--active {
+  background-image: url(../img/race/switch/плитка-актив.png);
+}
+
+.races__list {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.races__item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.races__image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  aspect-ratio: 360 / 351;
+  background-image: url('../img/race/фон-фото.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.races__icon {
+  width: 55%;
+}
+
+.reces__info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 32px;
+}
+
+.reces__top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.races__name {
+  position: relative;
+  width: fit-content;
+  font-size: 44px;
+  line-height: 100%;
+}
+
+.races__name::before, .races__name::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 105%;
+  width: 201px;
+  aspect-ratio: 201 / 45;
+  background-image: url('../img/race/декор-расы/декор-рас.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: translateY(-31%);
+}
+
+.races__name::before {
+  left: unset;
+  right: 105%;
+  transform: scale(-1, 1) translateY(-31%);
+}
+
+.races__decor {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  border-bottom: 2px solid;
+  border-image: linear-gradient(90deg, rgba(129, 82, 25, 0) 0%, rgba(129, 82, 25, 0.8) 20%, rgba(129, 82, 25, 0.8) 80%, rgba(129, 82, 25, 0) 100%) 1;
+}
+
+.races__decor::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 215px;
+  aspect-ratio: 215 / 39;
+  background-image: url('../img/race/декор-расы/низ_2.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: translateX(-50%);
+}
+
+.subraces {
+  width: 100%;
+}
+
+.subraces__list {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  width: 100%;
+}
+
+.subraces__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: var(--cursor-pointer);
+}
+
+.subraces__name {
+  font-size: 35px;
+  transition: all .3s ease-in-out;
+}
+
+.subraces__item:hover .subraces__name {
+  filter: drop-shadow(0px 0px 2px var(--color-gold));
+}
+
+.subraces__decor {
+  position: relative;
+  width: 100%;
+}
+
+.subraces__decor::before, .subraces__decor::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 27px;
+  aspect-ratio: 27 / 24;
+  background-image: url('../img/race/декор-подрас/наконечник.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: translateY(-50%);
+}
+
+.subraces__decor::before {
+  left: unset;
+  right: 100%;
+  transform: translateY(-50%) scale(-1, 1);
+}
+
+.subraces__decor > hr {
+  margin: 0;
+  height: 2px;
+  border: 0 solid;
+  background-color: var(--color-raw-umber);
+}
+
+.subraces__decor > hr::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  aspect-ratio: 1 / 1;
+  background-image: url('../img/race/декор-подрас/ромб.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: translate(-50%, -50%);
+}
+
+/*races__list--tile*/
+
+.races__list--tile {
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  row-gap: 60px;
+}
+
+.races__list--tile .races__item {
+  flex-direction: column;
+  gap: 5px;
+  width: calc((100% - 60px) / 3);
+  
+}
+
+.races__list--tile .subraces__list {
+  flex-direction: column;
+}
+
+.races__list--tile .reces__info {
+  gap: 10px;
+}
+
+.races__list--tile .subraces__list {
+  align-items: center;
+}
+
+.races__list--tile .subraces__item {
+
+  width: fit-content;
+}
+
+.races__list--tile .races__name::before, .races__list--tile .races__name::after {
+  background-image: url(../img/race/декор-расы/декор-рас-короткий.png);
+}
+
+.modal__subraces {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Kurale', sans-serif;
+  color: var(--color-seal-brown);
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+}
+
+.modal--active {
+  visibility: visible;
+}
+
+.modal__conteiner {
+  position: relative;
+  padding: 38px 60px;
+  width: 70%;
+  height: 80%;
+  border: 0px solid;
+  border-image-source: url(../img/race/subraces-decor/рамка-окна.png);
+  border-image-slice: 157;
+  border-image-width: 100px;
+  border-image-repeat: repeat;
+  background-image: url(../img/race/subraces-decor/background.webp);
+  background-position: center;
+  background-size: calc(100% - 32px) calc(100% - 27px);
+  background-repeat: no-repeat;
+}
+
+.modal__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 70px;
+  aspect-ratio: 1 / 1;
+  border-radius: 40px;
+  background-image: url(../img/race/subraces-decor/close.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: background-image .5s ease-in-out;
+  cursor: var(--cursor-pointer);
+  transform: translate(8%, -7%);
+}
+
+.modal__close:hover {
+  background-image: url(../img/race/subraces-decor/close-hover.png);
+}
+
+.modal__subraces-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.modal__races-name {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 33px;
+}
+
+.modal__races-name > img {
+  width: 50px;
+  height: auto;
+}
+
+.modal__subraces-name {
+  position: relative;
+  display: flex;
+  align-items: end;
+  gap: 10px;
+  font-size: 50px;
+  line-height: 100%;
+}
+
+.modal__subraces-name::before, .modal__subraces-name::after {
+  content: "";
+  width: 73px;
+  aspect-ratio: 73 / 45;
+  background-image: url(../img/race/декор-расы/декор-рас-короткий.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.modal__subraces-name::before {
+  transform: scale(-1, 1);
+}
+
+.modal__races-name, .modal__subraces-note {
+  width: 25%;
+}
+
+.modal__subraces-note {
+  font-size: 25px;
+  text-align: right;
+}
+
+.modal__subraces-info {
+  display: flex;
+  align-items: stretch;
+  gap: 30px;
+}
+
+.modal__image-container {
+  position: relative;
+  width: 500px;
+  aspect-ratio: 1 / 1;
+}
+
+.modal__image-bottom {
+  position: relative;
+}
+
+.modal__image-container::before, 
+.modal__image-container::after, 
+.modal__image-bottom::before, 
+.modal__image-bottom::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 66px;
+  aspect-ratio: 1 / 1;
+  background-image: url(../img/race/subraces-decor/угол-фото-2.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  
+}
+
+.modal__image-container::before {
+  transform: translate(-4px, -4px);
+}
+
+.modal__image-container::after {
+  left: unset;
+  right: 0;
+  transform: translate(4px, -4px) scale(-1, 1);
+}
+
+.modal__image-bottom::before {
+  top: unset;
+  bottom: 0;
+  transform: translate(-4px, 4px) scale(1, -1);
+}
+
+.modal__image-bottom::after {
+  top: unset;
+  left: unset;
+  bottom: 0;
+  right: 0;
+  transform: translate(4px, 4px) scale(-1, -1);
+}
+
+.modal__image-container > img {
+  width: 100%;
+  border: 6px solid;
+  border-image-source: url(../img/race/subraces-decor/рамка-фото-б-у.png);
+  border-image-slice: 10;
+  border-image-width: 8px;
+  border-image-repeat: repeat;
+}
+
+.modal__subraces-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 20px;
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(90deg, rgba(129, 82, 25, 0) 0%, rgba(129, 82, 25, 0.8) 20%, rgba(129, 82, 25, 0.8) 80%, rgba(129, 82, 25, 0) 100%) 1;
+}
+
+.modal__subraces-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.modal__stats-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 25px;
+}
+
+.modal__stats-item > img {
+  width: 71px;
+}
+
+.modal__subraces-descr {
+  padding-top: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(90deg, rgba(129, 82, 25, 0) 0%, rgba(129, 82, 25, 0.8) 20%, rgba(129, 82, 25, 0.8) 80%, rgba(129, 82, 25, 0) 100%) 1;
+  font-size: 22px;
+}
+
+.modal__subraces-descr::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 24px;
+  aspect-ratio: 1 / 1;
+  background-image: url(../img/race/декор-подрас/ромб.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: translate(-50%, -54%);
+}

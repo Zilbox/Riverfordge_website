@@ -9,6 +9,11 @@
   <link rel="stylesheet" href="css/media.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/footer.css">
+  <?php if (!empty($pageStyles)): ?>
+      <?php foreach ($pageStyles as $style): ?>
+          <link rel="stylesheet" href="<?= htmlspecialchars($style) ?>">
+      <?php endforeach; ?>
+  <?php endif; ?>
   <script defer src="js/main.js"></script>
   <title></title>
 </head>
@@ -38,7 +43,7 @@
             </a>
           </li> 
           <li class="header__item">
-            <a href="#">
+            <a href="races">
               <img src="img/icons/Расы_1.png" alt="" class="header__icon">
               Расы
             </a>

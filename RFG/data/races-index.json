@@ -1,0 +1,5 @@
+{
+  "states":  "states.json",
+  "races": "races.json",
+  "subraces": "subraces.json"
+}

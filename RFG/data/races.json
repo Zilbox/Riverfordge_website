@@ -1,0 +1,68 @@
+[
+  {
+    "RcID": "1",
+    "RcName": "Люди",
+    "RcUrl": "Люди.png"
+  },
+  {
+    "RcID": "2",
+    "RcName": "Эльфы",
+    "RcUrl": "Эльфы.png"
+  },
+  {
+    "RcID": "3",
+    "RcName": "Дворфы",
+    "RcUrl": "Дворфы.png"
+  },
+  {
+    "RcID": "4",
+    "RcName": "Полурослики",
+    "RcUrl": "Полурослики.png"
+  },
+  {
+    "RcID": "5",
+    "RcName": "Орки",
+    "RcUrl": "Орки.png"
+  },
+  {
+    "RcID": "6",
+    "RcName": "Гоблины",
+    "RcUrl": "Гоблины.png"
+  },
+  {
+    "RcID": "7",
+    "RcName": "Арахси",
+    "RcUrl": "Арахси.png"
+  },
+  {
+    "RcID": "8",
+    "RcName": "Кентавры",
+    "RcUrl": "Кентавры.png"
+  },
+  {
+    "RcID": "9",
+    "RcName": "Йотуны",
+    "RcUrl": "Йотуны.png"
+  },
+  {
+    "RcID": "10",
+    "RcName": "Сабвеки",
+    "RcUrl": "Сабвеки.png"
+  },
+  {
+    "RcID": "11",
+    "RcName": "Орниксы",
+    "RcUrl": "Орниксы.png"
+  },
+  {
+    "RcID": "12",
+    "RcName": "Аскемы",
+    "RcUrl": "Аскемы.png"
+  }
+  ,
+  {
+    "RcID": "13",
+    "RcName": "Элурики",
+    "RcUrl": "Элурики.png"
+  }
+]

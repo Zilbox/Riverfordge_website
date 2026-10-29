@@ -4,7 +4,7 @@
     <section class="info">
       <div class="container">
         <div class="info__tabs tabs">
-          <div class="tab info__tab info__tab--first">
+          <div class="tab info__tab info__tab--first  tab--active">
             <div class="tab__trigger info__bookmark info__bookmark--first">
               <img src="../img/character/ПЕРС.png" alt="" class="info__icon">
             </div>
@@ -22,11 +22,14 @@
                   <div class="info__table">
                     <div class="info__table-item info__race">
                       <div class="info__table-icon">
-                        <img src="../img/character/Йотун.png" alt="">
+                        <img src="../img/icon_race_brown/Аскемы.png" alt="">
                       </div>
                       <div class="info__table-container">
                         <div class="info__table-label">Раса</div>
-                        <div class="info__table-value">Йотун</div>
+                        <div class="info__table-value">
+                          Йотун
+                          <a href="#" target="_blank" class="info__table-quest"></a>
+                        </div>
                       </div>
                     </div>
                     <div class="info__table-item info__subspecie">
@@ -50,63 +53,199 @@
                   </div>
                 </div>
               </div>
-              <div class="info__stats-container">
-                <div class="info__stats-title">Статы</div>
-                  <!-- <div></div> -->
-                <div class="info__stats">
-                  
-                  <ul class="ul-reset info__stats-list info__stats-list--left">
-                    <li class="info__stats-item">
+              <div class="info__сharacteristics">
+                <div class="info__characteristics-titles">
+                  <div class="info__characteristics-title"></div>
+                  <div class="info__characteristics-title">Статы</div>
+                </div>
+                <div class="info__characteristics-container">
+                  <div class="info__characteristics-left">
+                    <p><b>Возраст:</b> 40</p>
+                    <p><b>Рост:</b> 2 м</p>
+                    <p><b>Вес:</b> 100 кг</p>
+                  </div>
+                  <div class="info__characteristics-right info__stats-list">
+                    <div class="info__stats-item">
                       <img src="../img/character/stats/Здоровье.png" alt="" class="info__stats-icon">
-                      <p>105+"13/11🔄"+(4🔰)=122/120</p>
-                    </li>
-                    <li class="info__stats-item">
+                      <p>122/120</p>
+                      <div class="info__stats-hint">
+                        <p class="info__stats-title"><b>Здоровье</b></p>
+                        <p>105</p>
+                        <ul class="ul-reset info__stats-parts">
+                          <li class="info__stats-part">
+                            <img src="../img/character/stats/Статы.png" alt="Зависимый">
+                            <p>13/11</p>
+                          </li>
+                          <li class="info__stats-part">
+                            <img src="../img/character/stats/Стража.png" alt="Стража">
+                            <p>4</p>
+                          </li>
+                        </ul>
+                        <div class="info__stats-result"><b>122/120</b></div>
+                      </div>
+                    </div>
+                    <div class="info__stats-item">
                       <img src="../img/character/stats/Сила.png" alt="" class="info__stats-icon">
-                      <p>6+(4🎄)+(93/77👕)+(25/20🐺)+(4🔰)=132/111</p>
-                    </li>
-                    <li class="info__stats-item">
+                      <p>132/111</p>
+                      <div class="info__stats-hint">
+                        <p class="info__stats-title"><b>Сила</b></p>
+                        <p>10</p>
+                        <ul class="ul-reset info__stats-parts">
+                          <li class="info__stats-part">
+                            <img src="../img/character/stats/Снаряжение.png" alt="Сняряжение">
+                            <p>93/77</p>
+                          </li>
+                          <li class="info__stats-part">
+                            <img src="../img/character/stats/Особенность.png" alt="Особенность">
+                            <p>25/20</p>
+                          </li>
+                          <li class="info__stats-part">
+                            <img src="../img/character/stats/Стража.png" alt="Стража">
+                            <p>4</p>
+                          </li>
+                        </ul>
+                        <div class="info__stats-result"><b>132/111</b></div>
+                      </div>
+                    </div>
+                    <div class="info__stats-item">
                       <img src="../img/character/stats/Скрытность.png" alt="" class="info__stats-icon">
-                      <p>1+(11👕)=12</p>
-                    </li>
-                    <li class="info__stats-item">
+                      <p>12</p>
+                      <div class="info__stats-hint">
+                        <p class="info__stats-title"><b>Скрытность</b></p>
+                        <p>1</p>
+                        <ul class="ul-reset info__stats-parts">
+                          <li class="info__stats-part">
+                            <img src="../img/character/stats/Снаряжение.png" alt="Сняряжение">
+                            <p>11</p>
+                          </li>
+                        </ul>
+                        <div class="info__stats-result"><b>12</b></div>
+                      </div>
+                    </div>
+                    <div class="info__stats-item">
                       <img src="../img/character/stats/Стойкость.png" alt="" class="info__stats-icon">
-                      <p>3+(39👕)+(10🐺)+(4🔰)=56</p>
-                    </li>            
-                    <li class="info__stats-item">
+                      <p>56</p>
+                      <div class="info__stats-hint">
+                        <p class="info__stats-title"><b>Стойкость</b></p>
+                        <p>3</p>
+                        <ul class="ul-reset info__stats-parts">
+                          <li class="info__stats-part">
+                            <img src="../img/character/stats/Снаряжение.png" alt="Сняряжение">
+                            <p>39</p>
+                          </li>
+                          <li class="info__stats-part">
+                            <img src="../img/character/stats/Особенность.png" alt="Особенность">
+                            <p>10</p>
+                          </li>
+                          <li class="info__stats-part">
+                            <img src="../img/character/stats/Стража.png" alt="Стража">
+                            <p>4</p>
+                          </li>
+                        </ul>
+                        <div class="info__stats-result"><b>56</b></div>
+                      </div>
+                    </div>            
+                    <div class="info__stats-item">
                       <img src="../img/character/stats/Выносливость.png" alt="" class="info__stats-icon">
-                      <p>18+"5🔄"=23</p>
-                    </li>
-                    <li class="info__stats-item">
+                      <p>23</p>
+                      <div class="info__stats-hint">
+                        <p class="info__stats-title"><b>Выносливость</b></p>
+                        <p>18</p>
+                        <ul class="ul-reset info__stats-parts">
+                          <li class="info__stats-part">
+                            <img src="../img/character/stats/Статы.png" alt="Зависимый">
+                            <p>5</p>
+                          </li>
+                        </ul>
+                        <div class="info__stats-result"><b>23</b></div>
+                      </div>
+                    </div>
+                    <div class="info__stats-item">
                       <img src="../img/character/stats/Харизма.png" alt="" class="info__stats-icon">
-                      <p>1000000000</p>
-                    </li>
-                  </ul>
-                  <ul class="ul-reset info__stats-list">
-                    <li class="info__stats-item">
+                      <p>100</p>
+                      <div class="info__stats-hint info__stats-hint--empty">
+                        <p class="info__stats-title"><b>Харизма</b></p>
+                        <div class="info__stats-result"><b>100</b></div>
+                      </div>
+                    </div>
+                    <div class="info__stats-item">
                       <img src="../img/character/stats/Магия-дух.png" alt="" class="info__stats-icon">
                       <p>50</p>
-                    </li>
-                    <li class="info__stats-item">
+                      <div class="info__stats-hint info__stats-hint--empty">
+                        <p class="info__stats-title"><b>Магия / Дух</b></p>
+                        <div class="info__stats-result"><b>50</b></div>
+                      </div>
+                    </div>
+                    <div class="info__stats-item">
                       <img src="../img/character/stats/Ловкость.png" alt="" class="info__stats-icon">
                       <p>2</p>
-                    </li>
-                    <li class="info__stats-item">
+                      <div class="info__stats-hint info__stats-hint--empty">
+                        <p class="info__stats-title"><b>Ловкость</b></p>
+                        <div class="info__stats-result"><b>2</b></div>
+                      </div>
+                    </div>
+                    <div class="info__stats-item">
                       <img src="../img/character/stats/Восприятие.png" alt="" class="info__stats-icon">
-                      <p>3+(0/10👕)+(4🔰)=7/17</p>
-                    </li>
-                    <li class="info__stats-item">
+                      <p>7/17</p>
+                      <div class="info__stats-hint">
+                        <p class="info__stats-title"><b>Восприятие</b></p>
+                        <p>3</p>
+                        <ul class="ul-reset info__stats-parts">
+                          <li class="info__stats-part">
+                            <img src="../img/character/stats/Снаряжение.png" alt="Сняряжение">
+                            <p>0/10</p>
+                          </li>
+                          <li class="info__stats-part">
+                            <img src="../img/character/stats/Стража.png" alt="Стража">
+                            <p>4</p>
+                          </li>
+                        </ul>
+                        <div class="info__stats-result"><b>7/17</b></div>
+                      </div>
+                    </div>
+                    <div class="info__stats-item">
                       <img src="../img/character/stats/Маг-стойкость.png" alt="" class="info__stats-icon">
-                      <p>6+(11👕)=17</p>
-                    </li>
-                    <li class="info__stats-item">
+                      <p>17</p>
+                      <div class="info__stats-hint">
+                        <p class="info__stats-title"><b>Магическая стойкость</b></p>
+                        <p>6</p>
+                        <ul class="ul-reset info__stats-parts">
+                          <li class="info__stats-part">
+                            <img src="../img/character/stats/Снаряжение.png" alt="Сняряжение">
+                            <p>11</p>
+                          </li>
+                        </ul>
+                        <div class="info__stats-result"><b>17</b></div>
+                      </div>
+                    </div>
+                    <div class="info__stats-item">
                       <img src="../img/character/stats/Внимательность.png" alt="" class="info__stats-icon">
-                      <p>2+(0/1👕)+"0/1🔄"=2/4</p>
-                    </li>
-                  </ul>
+                      <p>2/4</p>
+                      <div class="info__stats-hint">
+                        <p class="info__stats-title"><b>Внимательность</b></p>
+                        <p>2</p>
+                        <ul class="ul-reset info__stats-parts">
+                          <li class="info__stats-part">
+                            <img src="../img/character/stats/Снаряжение.png" alt="Сняряжение">
+                            <p>0/1</p>
+                          </li>
+                          <li class="info__stats-part">
+                            <img src="../img/character/stats/Статы.png" alt="Зависимый">
+                            <p>0/1</p>
+                          </li>
+                        </ul>
+                        <div class="info__stats-result"><b>2/4</b></div>
+                      </div>
+                    </div>
+                    <div class="info__stats-item"></div>
+                  
+                  </div>
                 </div>
+                  
               </div>
 
             </div>
+            <img src="../img/character/Розыск.png" alt="" class="info__personal-wantad">
           </div>
           
           <div class="tab info__tab info__tab--second info__outfit outfit">
@@ -125,7 +264,7 @@
                   <g id="neck" data-tip="Шея">
                     <polygon class="outfit__wardrobe-press" points="14,178 555,284 555,373 14,302 	"/>
                   </g>
-                  <g id="raincoat"  data-tip="Плащ">
+                  <g id="raincoat"  data-tip="Спина">
                     <polygon class="outfit__wardrobe-press" points="288,338 555,373 554,845 379,887 379,858 387,856 387,826 288,814 	"/>
                   </g>
                   <g id="shoulders" data-tip="Плечи">
@@ -170,7 +309,7 @@
               </div>
             </div>
           </div>
-          <div class="tab info__tab info__tab--third info__skills skills tab--active">
+          <div class="tab info__tab info__tab--third info__skills skills">
             <div class="tab__trigger info__bookmark info__bookmark--third">
               <img src="../img/character/навыки.png" alt="" class="info__icon">
             </div>
