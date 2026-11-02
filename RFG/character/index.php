@@ -22,7 +22,7 @@
                   <div class="info__table">
                     <div class="info__table-item info__race">
                       <div class="info__table-icon">
-                        <img src="../img/icon_race_brown/Аскемы.png" alt="">
+                        <img src="../img/icon_race_brown/Йотуны.png" alt="">
                       </div>
                       <div class="info__table-container">
                         <div class="info__table-label">Раса</div>

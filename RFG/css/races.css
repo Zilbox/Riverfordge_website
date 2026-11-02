@@ -5,7 +5,7 @@
   background-position-x: center;
   border: 27px solid transparent;
   border-top: none;
-  border-image-source: url(../img/race/border/рамка.png);
+  border-image-source: url(../img/race/border/рамка.webp);
   border-image-slice: 40;
   border-image-repeat: repeat;
   background-image:
@@ -44,7 +44,7 @@
   top: 0;
   right: 0;
   width: 100%;
-  height: 440px;
+  /* height: 440px; */
 }
 
 .main__decor-top::before, .main__decor-top::after {
@@ -59,12 +59,12 @@
 
 .main__decor-top::before {
   left: 0;
-  background-image: url('../img/race/верх-лево.png');
+  background-image: url('../img/race/верх-лево.webp');
 }
 
 .main__decor-top::after {
   right: 0;
-  background-image: url('../img/race/верх-право.png');
+  background-image: url('../img/race/верх-право.webp');
 }
 
 .main__decor-bottom {
@@ -88,39 +88,34 @@
 
 .main__decor-bottom::before {
   left: 0;
-  background-image: url('../img/race/низ-лево.png');
+  background-image: url('../img/race/низ-лево.webp');
 }
 
 .main__decor-bottom::after {
   right: 0;
-  background-image: url('../img/race/низ-право.png');
+  background-image: url('../img/race/низ-право.webp');
 }
 
-.main__wall-left {
+.main__wall-left, .main__wall-right {
   position: absolute;
   top: 50%;
-  left: 0;
   width: 131px;
-  height: calc(100% - 460px - 475px);
   background-image: url(../img/race/боковая-1.png);
   background-repeat: space;
   background-position: center;
   background-size: contain;
+}
+
+.main__wall-left {
+  left: 0;
+  height: calc(100% - 460px - 475px);
   transform: translateY(-50%);
 }
 
 .main__wall-right {
-  position: absolute;
-  top: 50%;
   right: 0;
-  width: 131px;
   height: calc(100% - 470px - 475px);
-  background-image: url(../img/race/боковая-1.png);
-  background-repeat: space;
-  background-position: center;
-  background-size: contain;
   transform: translateY(-50%) scale(-1, 1);
-
 }
 
 .races {
@@ -136,30 +131,32 @@
   display: flex;
   width: fit-content;
   transform: translateX(80px);
+  filter: drop-shadow(0px 3px 5px var(--color-seal-brown));
 }
 
 .races__switch-btn {
   width: 150px;
   aspect-ratio: 595 / 370;
-  background-size: contain;
+  background-image: url(../img/race/switch/switch-split.png);
   background-repeat: no-repeat;
+  background-size: 300px;
   cursor: var(--cursor-pointer);
-  filter: drop-shadow(0px 3px 5px var(--color-seal-brown));
+
 }
 
 .races__switch-list {
-  background-image: url(../img/race/switch/список-дефолт.png);
+  background-position: 0 0;
 }
 .races__switch-list.races__switch--active {
-  background-image: url(../img/race/switch/список-актив.png);
+  background-position: 100% 0;
 }
 
 .races__switch-tile {
-  background-image: url(../img/race/switch/плитка-дефолт.png);
+  background-position: 0 100%;
 }
 
 .races__switch-tile.races__switch--active {
-  background-image: url(../img/race/switch/плитка-актив.png);
+  background-position: 100% 100%;
 }
 
 .races__list {
@@ -180,7 +177,7 @@
   justify-content: center;
   width: 250px;
   aspect-ratio: 360 / 351;
-  background-image: url('../img/race/фон-фото.png');
+  background-image: url('../img/race/фон-фото.webp');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -273,6 +270,7 @@
 
 .subraces__name {
   font-size: 35px;
+  text-align: center;
   transition: all .3s ease-in-out;
 }
 
@@ -359,8 +357,12 @@
 }
 
 .races__list--tile .races__name::before, .races__list--tile .races__name::after {
+  width: 73px;
+  aspect-ratio: 73 / 45;
   background-image: url(../img/race/декор-расы/декор-рас-короткий.png);
 }
+
+/*modal*/
 
 .modal__subraces {
   position: fixed;
@@ -384,9 +386,10 @@
 
 .modal__conteiner {
   position: relative;
-  padding: 38px 60px;
+  padding: 60px;
   width: 70%;
-  height: 80%;
+  height: fit-content;
+  max-height: 99vh;
   border: 0px solid;
   border-image-source: url(../img/race/subraces-decor/рамка-окна.png);
   border-image-slice: 157;
@@ -394,8 +397,18 @@
   border-image-repeat: repeat;
   background-image: url(../img/race/subraces-decor/background.webp);
   background-position: center;
-  background-size: calc(100% - 32px) calc(100% - 27px);
+  background-size: calc(100% - 34px) calc(100% - 29px);
   background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.modal__content {
+  padding-right: 10px;
+  width: 100%;
+  height: 100%;
+  max-height: calc(99vh - 120px);
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .modal__close {
@@ -444,6 +457,7 @@
   gap: 10px;
   font-size: 50px;
   line-height: 100%;
+  text-wrap: nowrap;
 }
 
 .modal__subraces-name::before, .modal__subraces-name::after {
@@ -463,20 +477,26 @@
   width: 25%;
 }
 
-.modal__subraces-note {
+.modal__subraces-note { 
+  container-type: inline-size;
   font-size: 25px;
+  font-size: 1.7cqw;
   text-align: right;
 }
 
 .modal__subraces-info {
-  display: flex;
-  align-items: stretch;
-  gap: 30px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 40% auto;
+  grid-template-rows: repeat(2, auto);
+  flex-direction: column;
+  column-gap: 30px;
 }
 
 .modal__image-container {
   position: relative;
-  width: 500px;
+  grid-row: span 2;
+  width: 100%;
   aspect-ratio: 1 / 1;
 }
 
@@ -533,24 +553,32 @@
   border-image-repeat: repeat;
 }
 
-.modal__subraces-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 20px;
-  padding-top: 20px;
-  border-top: 2px solid transparent;
-  border-image: linear-gradient(90deg, rgba(129, 82, 25, 0) 0%, rgba(129, 82, 25, 0.8) 20%, rgba(129, 82, 25, 0.8) 80%, rgba(129, 82, 25, 0) 100%) 1;
-}
-
 .modal__subraces-stats {
+  position: relative;
+  padding: 20px 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, rgba(129, 82, 25, 0) 0%, rgba(129, 82, 25, 0.8) 20%, rgba(129, 82, 25, 0.8) 80%, rgba(129, 82, 25, 0) 100%) 1;
+}
+
+.modal__subraces-stats::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 24px;
+  aspect-ratio: 1 / 1;
+  background-image: url(../img/race/декор-подрас/ромб.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: translate(-50%, 54%);
 }
 
 .modal__stats-item {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 7px;
@@ -561,26 +589,718 @@
   width: 71px;
 }
 
+.modal__stats-hint {
+  position: absolute;
+  top: -6px;
+  left: 68px;
+  z-index: 1;
+  padding: 5px 25px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  opacity: 0;
+  visibility: hidden;
+  border-top: 1px solid var(--color-seal-brown);
+  border-bottom: 1px solid var(--color-seal-brown);
+  background-color: #ffefd8;
+  font-size: 15px;
+  line-height: 100%;
+  text-wrap: nowrap;
+  transition: opacity .3s ease-in-out;
+  filter: drop-shadow(1px 1px 5px var(--color-seal-brown));
+}
+.modal__stats-hint::before, .modal__stats-hint::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  height: 135%;
+  aspect-ratio: 40 / 34;
+  background-image: url(../img/race/subraces-decor/hint-decor.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: translate(50%, -50%);
+}
+
+.modal__stats-hint::after {
+  right: unset;
+  left: 100%;
+  transform: translate(-50%, -50%) scale(-1, 1);
+}
+
+.modal__stats-item:is(:nth-child(4n + 3), :nth-child(4n + 4)) .modal__stats-hint {
+  left: unset;
+  right: 100%;
+}
+
+.modal__stats-item:hover .modal__stats-hint {
+  opacity: 1;
+  visibility: visible;
+}
+
 .modal__subraces-descr {
   padding-top: 20px;
-  position: relative;
   display: flex;
   flex-direction: column;
   gap: 5px;
-  border-top: 2px solid transparent;
-  border-image: linear-gradient(90deg, rgba(129, 82, 25, 0) 0%, rgba(129, 82, 25, 0.8) 20%, rgba(129, 82, 25, 0.8) 80%, rgba(129, 82, 25, 0) 100%) 1;
   font-size: 22px;
 }
 
-.modal__subraces-descr::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 24px;
-  aspect-ratio: 1 / 1;
-  background-image: url(../img/race/декор-подрас/ромб.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  transform: translate(-50%, -54%);
+
+@media(max-width: 1900px) {
+
+  .main__wall-right, .main__wall-left {
+    width: calc(((100% - 100vw * 0.28 * 2) * 147) / 888);
+    height: calc(100% - 100vw * 0.28 * 2);
+  }
+
+  .main__decor-top::before, .main__decor-top::after,
+  .main__decor-bottom::before, .main__decor-bottom::after {
+    width: 28%;
+  }
+
+  .modal__conteiner {
+    width: 90%;
+  }
+
+}
+
+@media(max-width: 1600px) {
+
+  .main__decor-top::before, .main__decor-top::after {
+    width: 28%;
+  }
+
+  .races__switch {
+    transform: unset;
+  }
+
+}
+
+@media(max-width: 1440px) {
+
+  .main {
+    border-width: 18px;
+  }
+
+  .main::before, .main::after {
+    bottom: -18px;
+  }
+
+  .main::before {
+    left: -18px;
+    height: 48px;
+  }
+
+  .main::after {
+    right: -18px;
+    height: 48px;
+  }
+
+  .races__container {
+    width: 90%;
+  }
+
+  .races__switch {
+    margin-right: 50px;
+    transform: unset;
+  }
+
+  .races__list--tile .races__name {
+    font-size: 40px;
+  }
+
+  .races__list--tile .subraces__name {
+    font-size: 30px;
+  }
+
+}
+
+@media(max-width: 1280px) {
+
+  .races__switch-btn {
+    width: 120px;
+    background-size: 240px;
+  }
+
+  .races__list {
+    gap: 35px;
+  }
+
+  .races__list--tile {
+    gap: 20px;
+  }
+
+  .races__list--tile .races__item {
+    width: calc((100% - 40px) / 3);
+  }
+
+  .races__image {
+    width: 220px;
+  }
+
+  .races__name {
+    font-size: 40px;
+  }
+
+  .subraces__name {
+    font-size: 30px;
+  }
+
+  .races__list--tile {
+    row-gap: 45px;
+  }
+
+  .races__list--tile .races__name {
+    font-size: 35px;
+  }
+
+  .races__list--tile .subraces__name {
+    font-size: 25px;
+  }
+
+  .races__list--tile .races__name::before, 
+  .races__list--tile .races__name::after {
+    width: 59px;
+    font-size: 35px;
+    transform: translateY(-43%);
+  }
+
+  .races__list--tile .races__name::before {
+    transform: translateY(-43%) scale(-1, 1);
+  }
+
+  /*modal*/
+
+  .modal__conteiner {
+    padding: 30px 46px;
+    border-image-width: 80px;
+    background-size: calc(100% - 28px) calc(100% - 25px);
+  }
+
+  .modal__content {
+    max-height: calc(99vh - 92px);
+  }
+
+  .modal__close {
+    width: 50px;
+  }
+      
+  .modal__subraces-top {
+    margin-bottom: 10px;
+  }
+
+  .modal__races-name > img {
+    width: 40px;
+  }
+
+  .modal__subraces-name {
+    font-size: 40px;
+  }
+
+  .modal__subraces-name::before, .modal__subraces-name::after {
+    width: 54px;
+  }
+
+  .modal__subraces-info {
+    column-gap: 20px;
+  }
+
+  .modal__image-container {
+    grid-row: unset;
+  }
+
+  .modal__subraces-descr {
+    grid-column: span 2;
+    font-size: 19px;
+  }
+
+}
+
+@media(max-width: 1280px) and (orientation: landscape) {
+
+  .modal__subraces-info {
+    grid-template-columns: 40vh auto;
+  }
+
+}
+
+@media(max-width: 1280px) and (orientation: portrait) {
+
+  .modal__subraces-info {
+    grid-template-columns: 36vw auto;
+  }
+
+}
+
+
+@media(max-width: 1128px) {
+
+  .main {
+    padding-top: 55px;
+  }
+
+  .races__list {
+    gap: 20px;
+  }
+
+  .races__image {
+    width: 190px;
+  }
+
+  .races__name {
+    font-size: 30px;
+  }
+
+  .races__name::before, .races__name::after {
+    width: 160px;
+  }
+
+  .subraces__name {
+    font-size: 23px;
+  }
+
+  .races__list--tile {
+    row-gap: 35px;
+  }
+
+  /*modal*/
+
+  .modal__races-name > img {
+    width: 35px;
+  }
+
+  .modal__races-name {
+    font-size: 30px;
+  }
+
+  .modal__subraces-name {
+    font-size: 35px;
+  }
+
+  .modal__subraces-note {
+    font-size: 19px;
+    font-size: 2cqw;
+  }
+
+  .modal__subraces-stats {
+    padding: 15px 0;
+    gap: 5px;
+  }
+
+  .modal__stats-item {
+    font-size: 22px;
+  }
+
+  .modal__stats-item > img {
+    width: 59px;
+  }
+
+  .modal__stats-hint {
+    top: 6px;
+    left: 56px;
+  }
+
+  .modal__subraces-descr {
+    font-size: 16px;
+  }
+
+}
+
+@media(max-width: 1128px) {
+
+  .races__list {
+    row-gap: 50px;
+    padding: 0 20px;
+  }
+  
+  .races__name {
+    font-size: 30px;
+  }
+
+  .races__name::before, .races__name::after {
+    width: 160px;
+  }
+
+  .subraces__name {
+    font-size: 25px;
+  }
+
+  .races__list--tile .races__list {
+    padding: 0;
+  }
+
+  .races__list--tile .races__name {
+    font-size: 25px;
+  }  
+
+  .races__list--tile .subraces__name {
+    font-size: 23px;
+  }
+
+  /*modal*/
+  .modal__stats-item {
+    font-size: 19px;
+  }
+}
+
+@media(max-width: 920px) {
+
+  .main {
+    padding-top: 34px;
+    border-width: 15px;
+  }
+
+  .main::before, .main::after {
+    bottom: -15px;
+  }
+
+  .main::before {
+    left: -15px;
+    height: 40px;
+  }
+
+  .main::after {
+    right: -15px;
+    height: 40px;
+  }
+
+
+  .races__switch {
+    margin-right: 19px;
+  }
+
+  .races__switch-btn {
+    width: 90px;
+    background-size: 180px;
+  }
+
+  .reces__info {
+    gap: 10px;
+  }
+
+  .races__image {
+    width: 170px;
+  }
+
+  .races__decor::before {
+    width: 180px;
+    transform: translate(-50%, 10%);
+  }
+
+  .subraces__list {
+    flex-wrap: wrap;
+    column-gap: 54px;
+    row-gap: 12px;
+  }
+  
+  .subraces__item {
+    gap: 5px;
+    min-width: 35%;
+  }
+
+  .races__name::before, .races__name::after {
+    width: 50px;
+    aspect-ratio: 73 / 45;
+    background-image: url(../img/race/декор-расы/декор-рас-короткий.png);
+  }
+
+  .races__list--tile .races__item {
+    width: calc((100% - 20px) / 2);
+  }
+
+  /*modal*/
+
+  .modal__conteiner {
+    padding: 30px 28px;
+    border-image-width: 55px;
+    background-size: calc(100% - 18px) calc(100% - 17px);
+  }
+
+  .modal__content {
+    max-height: calc(99vh - 56px);
+  }
+
+  .modal__close {
+    width: 42px;
+  }
+
+  .modal__subraces-name {
+    font-size: 31px;
+  }
+  .modal__subraces-name::before, 
+  .modal__subraces-name::after {
+    width: 45px;
+  }
+
+  .modal__races-name {
+    gap: 4px;
+    font-size: 20px;
+  }
+
+  .modal__subraces-name {
+    font-size: 26px;
+  }
+
+  .modal__subraces-name::before, .modal__subraces-name::after {
+    width: 31px;
+  }
+
+  .modal__subraces-info {
+    column-gap: 10px;
+  }
+
+  .modal__subraces-stats {
+    padding: 8px 0;
+  }
+
+  .modal__stats-item {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .modal__stats-item > img {
+    width: 47px;
+  }
+
+  .modal__stats-hint {
+    top: -16px;
+  }
+
+  .modal__stats-item:is(:nth-child(4n + 3), :nth-child(4n + 4)) .modal__stats-hint {
+    right: 86%;
+  }
+
+  .modal__image-container::before, .modal__image-container::after, .modal__image-bottom::before, .modal__image-bottom::after {
+    width: 40px;
+  }
+
+}
+
+@media (max-width: 1280px) and (orientation: landscape) {
+  .modal__subraces-info {
+    grid-template-columns: 46vh auto;
+  }
+
+
+}
+
+@media(max-width: 576px) {
+
+  .main {
+    padding-top: 35px;
+    padding-bottom: 60px;
+    border-width: 11px;
+  }
+
+  .main::before, .main::after {
+    bottom: -11px;
+  }
+
+  .main::before {
+    left: -11px;
+    height: 35px;
+  }
+
+  .main::after {
+    right: -11px;
+    height: 35px;
+  }
+
+  .races__switch {
+    display: none;
+  }
+
+  .races__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 35px;
+  }
+
+  .races__item {
+    flex-direction: column;
+    gap: 0;
+    width: calc((100% - 20px) / 2);
+  }
+
+  .races__image {
+    width: 100%;
+  }
+
+  .reces__top {
+    gap: 0;
+  }
+
+  .races__name {
+    font-size: 20px;
+  }
+
+  .races__name::before, .races__name::after {
+    content: unset;
+  }
+
+  .races__decor {
+    border: unset;
+  }
+
+  .races__decor::before {
+    width: 90%;
+  }
+
+  .subraces__name {
+    font-size: 16px;
+  }
+
+  .subraces__decor::before, .subraces__decor::after {
+    width: 18px;
+  }
+
+  .subraces__decor > hr::before {
+    width: 15px;
+  }
+
+  .races__list--tile .races__item {
+    /* width: 100%; */
+  }
+
+  .races__list--tile .races__name::before, 
+  .races__list--tile .races__name::after {
+    width: 45px;
+  }
+
+  .subraces__list , .races__list--tile .subraces__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 70px;
+    row-gap: 10px;
+  }
+
+  /*modal*/
+
+  .modal__conteiner {
+    margin-bottom: 35px;
+    padding: 15px 5px 15px 15px;
+    width: 98%;
+    border-image-width: 36px;
+    background-size: calc(100% - 13px) calc(100% - 9px);
+  }
+
+  .modal__content {
+    max-height: calc(95vh - 30px);
+  }
+
+  .modal__subraces-top {
+    flex-wrap: wrap;
+    gap: 0;
+    margin-bottom: 10px;
+    
+  }
+
+  .modal__subraces-top > * {
+    width: 45%;
+    order: 1;
+    
+  }
+
+  .modal__races-name {
+    gap: 9px;
+    font-size: 16px;
+    
+  }
+
+  .modal__races-name > img {
+    width: 30px;
+  }
+
+  .modal__subraces-name {
+    order: 0;
+    justify-content: center;
+    width: 100%;
+    font-size: 22px;
+  }
+
+  .modal__subraces-note {
+    font-size: 15px;
+  }
+
+  .modal__subraces-name::before, .modal__subraces-name::after {
+    width: 30px;
+  }
+
+  .modal__subraces-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .modal__image-container {
+    width: 50vw;
+  }
+
+  .modal__subraces-stats {
+    width: 100%;
+  }
+
+  .modal__subraces-stats::after {
+    width: 17px;
+  }
+
+  .modal__stats-item {
+    flex-direction: row;
+    gap: 5px;
+    font-size: 15px;
+  }
+
+  .modal__stats-item > img {
+    width: 40px;
+  }
+
+  .modal__stats-item:is(:nth-child(4n + 3), :nth-child(4n + 4)) .modal__stats-hint {
+    right: 100%;
+  }
+
+  .modal__stats-hint {
+    top: -14px;
+    left: 42px;
+    font-size: 13px;
+  }
+
+
+
+  .modal__stats-hint::before, .modal__stats-hint::after {
+    height: 125%;
+  }
+
+  .modal__subraces-descr {
+    padding-top: 0px;
+    font-size: 14px;
+  }
+}
+
+@media(max-width: 360px) {
+
+  .races__list {
+    row-gap: 40px;
+  }
+
+  .reces__top {
+    gap: 2px;
+  }
+
+  .races__name {
+    font-size: 25px;
+  }
+
+  .races__name::before, .races__name::after {
+    width: 42px;
+  }
+
+  .subraces__name,
+  .races__list--tile .subraces__name {
+    font-size: 20px;
+  }
+
+  /*modal*/
+
 }

@@ -32,6 +32,7 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* WebKit-браузеры (Chrome, Safari, Edge) */

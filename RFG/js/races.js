@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let modalSubracesStatsElement;
     let modalSubracesStatsImage;
+    let modalSubracesStatsHint;
 
     states.forEach(state => {
       modalSubracesStatsElement = document.createElement('div');
@@ -83,6 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
       modalSubracesStatsImage.setAttribute('src', modalSubracesStats.dataset.imageUrl+state.SrUrl);
       modalSubracesStatsElement.append(modalSubracesStatsImage);
       modalSubracesStatsElement.append(document.createElement('p'));
+      modalSubracesStatsHint = document.createElement('div');
+      modalSubracesStatsHint.classList.add('modal__stats-hint');
+      modalSubracesStatsHint.innerHTML = '<b>' + state.StName + '</b>';
+      modalSubracesStatsElement.append(modalSubracesStatsHint);
       modalSubracesStats.append(modalSubracesStatsElement);
     })
 

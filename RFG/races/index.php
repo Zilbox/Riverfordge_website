@@ -451,28 +451,25 @@
   </main>
   <div id="modalSubraces" class="modal__subraces">
     <div class="modal__conteiner">
-      <div class="modal__subraces-top">
-        <div class="modal__races-name">
-          <img id="modalRaceImage" src="" alt="" data-url="../img/icon_race_gold/">
-          <p id="modalRacesName"></p>
+      <div class="modal__content">
+        <div class="modal__subraces-top">
+          <div class="modal__races-name">
+            <img id="modalRaceImage" src="" alt="" data-url="../img/icon_race_gold/">
+            <p id="modalRacesName"></p>
+          </div>
+          <div id="modalSubracesName" class="modal__subraces-name"><b></b></div>
+          <div id="modalSubracesNote" class="modal__subraces-note"></div>
         </div>
-        <div id="modalSubracesName" class="modal__subraces-name"><b></b></div>
-        <div id="modalSubracesNote" class="modal__subraces-note"></div>
-      </div>
-      <div class="modal__subraces-info">
-        <div class="modal__image-container">
-          <img src="" alt="" id="modalImage" data-url="../img/race/subraces/">
-          <div class="modal__image-bottom"></div>
+        <div class="modal__subraces-info">
+          <div class="modal__image-container">
+            <img src="" alt="" id="modalImage" data-url="../img/race/subraces/">
+            <div class="modal__image-bottom"></div>
+          </div>
+            <div id="modalSubracesStats" class="modal__subraces-stats" data-image-url="../img/character/stats/"></div>
+            <div id="modalSubracesDescr" class="modal__subraces-descr"></div>
         </div>
-        <div class="modal__subraces-right">
-          <div id="modalSubracesStats" class="modal__subraces-stats" data-image-url="../img/character/stats/">
-            
-          </div>
-          <div id="modalSubracesDescr" class="modal__subraces-descr">
-            Их род множился.. Создавая персонажа, игрок может выбрать любую характеристику, увеличив куб проверки для неё до 1d12 и любую другую, снизив куб проверки для неё на 1d6. Муравьи на двух ногах В самой крови человека таится неукротимое стремление выжить. При любых бросках «Перевязки» или оказания «Первой помощи» персонаж получает +1 к результату — будь то лечение собственных ран или спасение товарища.
-          </div>
-          </div>
       </div>
+      
       <div id="modalSubracesClose" class="modal__close" data-modal="modalSubraces"></div>
     </div>
   </div>

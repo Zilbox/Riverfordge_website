@@ -66,7 +66,7 @@
     "SrID": 4,
     "RcID": "2",
     "SrName": "Вестлинги",
-    "SrNote": "Высшие эльфы",
+    "SrNote": "Высшие",
     "SrUrl": "Эльфы-Вестлинги.webp",
     "SrStates": [
       {"StID":"1", "StValue": "90"},
@@ -87,7 +87,7 @@
     "SrID": 5,
     "RcID": "2",
     "SrName": "Гондрлинги",
-    "SrNote": "Лесные эльфы",
+    "SrNote": "Лесные",
     "SrUrl": "Эльфы-Гондрлинги.webp",
     "SrStates": [
       {"StID":"1", "StValue": "94"},
@@ -108,7 +108,7 @@
     "SrID": 6,
     "RcID": "2",
     "SrName": "Дроулинги",
-    "SrNote": "Тёмные эльфы",
+    "SrNote": "Тёмные",
     "SrUrl": "Эльфы-Дроулинги.webp",
     "SrStates": [
       {"StID":"1", "StValue": "95"},
@@ -129,7 +129,7 @@
     "SrID": 7,
     "RcID": "3",
     "SrName": "Ревгирны",
-    "SrNote": "Горные дворфы",
+    "SrNote": "Горные",
     "SrUrl": "Дворфы-Ревгирны.webp",
     "SrStates": [
       {"StID":"1", "StValue": "104"},
@@ -150,7 +150,7 @@
     "SrID": 8,
     "RcID": "3",
     "SrName": "Шогирны",
-    "SrNote": "Степные дворфы",
+    "SrNote": "Степные",
     "SrUrl": "Дворфы-Шогирны.webp",
     "SrStates": [
       {"StID":"1", "StValue": "102"},
@@ -171,7 +171,7 @@
     "SrID": 9,
     "RcID": "3",
     "SrName": "Лосгирны",
-    "SrNote": "Тёмные дворфы",
+    "SrNote": "Тёмные",
     "SrUrl": "Дворфы-Лосгирны.webp",
     "SrStates": [
       {"StID":"1", "StValue": "99"},
@@ -192,7 +192,7 @@
     "SrID": 10,
     "RcID": "4",
     "SrName": "Хафмы",
-    "SrNote": "Равнинные полурослики",
+    "SrNote": "Равнинные",
     "SrUrl": "Полурослики-Хафмы.webp",
     "SrStates": [
       {"StID":"1", "StValue": "87"},
@@ -213,7 +213,7 @@
     "SrID": 11,
     "RcID": "4",
     "SrName": "Гномы",
-    "SrNote": "Горные полурослики",
+    "SrNote": "Горные",
     "SrUrl": "Полурослики-Гномы.webp",
     "SrStates": [
       {"StID":"1", "StValue": "91"},
@@ -234,7 +234,7 @@
     "SrID": 12,
     "RcID": "4",
     "SrName": "Хайлы",
-    "SrNote": "Пустынные полурослики",
+    "SrNote": "Пустынные",
     "SrUrl": "Полурослики-Хайлы.webp",
     "SrStates": [
       {"StID":"1", "StValue": "86"},
@@ -255,7 +255,7 @@
     "SrID": 13,
     "RcID": "5",
     "SrName": "Огм'ары",
-    "SrNote": "Степные орки",
+    "SrNote": "Степные",
     "SrUrl": "Орки-Огмары.webp",
     "SrStates": [
       {"StID":"1", "StValue": "105"},
@@ -276,7 +276,7 @@
     "SrID": 14,
     "RcID": "5",
     "SrName": "Друг'ары",
-    "SrNote": "Горные орки",
+    "SrNote": "Горные",
     "SrUrl": "Орки-Другары.webp",
     "SrStates": [
       {"StID":"1", "StValue": "109"},
@@ -297,7 +297,7 @@
     "SrID": 15,
     "RcID": "5",
     "SrName": "Зуг'ары",
-    "SrNote": "Пещерные орки",
+    "SrNote": "Пещерные",
     "SrUrl": "Орки-Зугары.webp",
     "SrStates": [
       {"StID":"1", "StValue": "101"},
@@ -318,7 +318,7 @@
     "SrID": 16,
     "RcID": "6",
     "SrName": "Вудлины",
-    "SrNote": "Лесные гоблины",
+    "SrNote": "Лесные",
     "SrUrl": "Гоблины-Вудлины.webp",
     "SrStates": [
       {"StID":"1", "StValue": "93"},
@@ -339,7 +339,7 @@
     "SrID": 17,
     "RcID": "6",
     "SrName": "Уруклины",
-    "SrNote": "Степные гоблины",
+    "SrNote": "Степные",
     "SrUrl": "Гоблины-Уруклины.webp",
     "SrStates": [
       {"StID":"1", "StValue": "91"},
@@ -360,7 +360,7 @@
     "SrID": 18,
     "RcID": "6",
     "SrName": "Шкрилины",
-    "SrNote": "Пещерные гоблины",
+    "SrNote": "Пещерные",
     "SrUrl": "Гоблины-Шкрилины.webp",
     "SrStates": [
       {"StID":"1", "StValue": "95"},
@@ -381,7 +381,7 @@
     "SrID": 19,
     "RcID": "7",
     "SrName": "Йарвери",
-    "SrNote": "Низкие арахси",
+    "SrNote": "Низкие",
     "SrUrl": "Арахси-Йарвери.webp",
     "SrStates": [
       {"StID":"1", "StValue": "91"},
@@ -444,7 +444,7 @@
     "SrID": 22,
     "RcID": "8",
     "SrName": "Элс'мавар",
-    "SrNote": "Первородные кентавры",
+    "SrNote": "Первородные",
     "SrUrl": "Кентавры-Элсмавар.webp",
     "SrStates": [
       {"StID":"1", "StValue": "109"},
@@ -465,7 +465,7 @@
     "SrID": 23,
     "RcID": "8",
     "SrName": "Меджаи",
-    "SrNote": "Пустынные кентавры",
+    "SrNote": "Пустынные",
     "SrUrl": "Кентавры-Меджаи.webp",
     "SrStates": [
       {"StID":"1", "StValue": "100"},
@@ -570,7 +570,7 @@
     "SrID": 28,
     "RcID": "10",
     "SrName": "Мавеки",
-    "SrNote": "Северные сабвеки",
+    "SrNote": "Северные",
     "SrUrl": "Сабвеки-Мавеки.webp",
     "SrStates": [
       {"StID":"1", "StValue": "101"},
@@ -591,7 +591,7 @@
     "SrID": 29,
     "RcID": "10",
     "SrName": "Сахвеки",
-    "SrNote": "Йерувийские сабвеки",
+    "SrNote": "Йерувийские",
     "SrUrl": "Сабвеки-Сахвеки.webp",
     "SrStates": [
       {"StID":"1", "StValue": "94"},
@@ -612,7 +612,7 @@
     "SrID": 30,
     "RcID": "10",
     "SrName": "Джувеки",
-    "SrNote": "Кочевые сабвеки",
+    "SrNote": "Кочевые",
     "SrUrl": "Сабвеки-Джувеки.webp",
     "SrStates": [
       {"StID":"1", "StValue": "97"},
@@ -633,7 +633,7 @@
     "SrID": 31,
     "RcID": "11",
     "SrName": "Коалиты",
-    "SrNote": "Низкие орниксы",
+    "SrNote": "Низкие",
     "SrUrl": "Орниксы-Коалиты.webp",
     "SrStates": [
       {"StID":"1", "StValue": "100"},
@@ -696,7 +696,7 @@
     "SrID": 34,
     "RcID": "12",
     "SrName": "Хушу-коталь",
-    "SrNote": "Низкие аскемы",
+    "SrNote": "Низкие",
     "SrUrl": "Аскемы-Хушу-коталь.webp",
     "SrStates": [
       {"StID":"1", "StValue": "97"},
@@ -759,7 +759,7 @@
     "SrID": 37,
     "RcID": "13",
     "SrName": "Нэцкэ",
-    "SrNote": "Низкие элурики",
+    "SrNote": "Низкие",
     "SrUrl": "Элурики-Нэцкэ.webp",
     "SrStates": [
       {"StID":"1", "StValue": "99"},
